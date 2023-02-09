@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import { AppProvider } from "./context";
 
 import "./index.css";
 import About from "./pages/About";
@@ -13,16 +14,18 @@ import SingleCocktail from "./pages/SingleCocktail";
 
 const CockTailApp = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="cocktail/:id" element={<SingleCocktail />} />
-          <Route path="*" element={<Error />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navbar />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="cocktail/:id" element={<SingleCocktail />} />
+            <Route path="*" element={<Error />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
   );
 };
 
