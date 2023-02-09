@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 import "./index.css";
 import About from "./pages/About";
@@ -14,7 +15,7 @@ const CockTailApp = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+        <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="cocktail/:id" element={<SingleCocktail />} />
